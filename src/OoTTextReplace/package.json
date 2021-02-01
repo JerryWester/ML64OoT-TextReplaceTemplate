@@ -1,9 +1,9 @@
 {
-  "name": "zzplayas_template",
+  "name": "OoTTextReplace",
   "version": "1.0.0",
   "description": "",
-  "main": "zzplayas.js",
-  "author": "Team-Ooto",
+  "main": "TextReplacement.js",
+  "author": "JerryWester",
   "credits": "",
   "license": "GPL-3.0",
   "compression": "zip",

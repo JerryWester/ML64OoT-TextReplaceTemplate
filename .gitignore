@@ -121,3 +121,4 @@ cores/
 dist/
 external_cores/
 libs/
+modloader64-config.json
