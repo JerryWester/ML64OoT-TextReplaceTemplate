@@ -18,13 +18,27 @@ class TextReplacement implements IPlugin {
     onRomPatched(evt: any) {
         let rom = evt.rom as Buffer;
         let tools = new Z64RomTools(this.ModLoader, Z64LibSupportedGames.OCARINA_OF_TIME);
+        if (!!((this as any)['metadata']['message_table'] as string)) {
+            let file = fs.readFileSync(path.resolve(__dirname, (this as any)['metadata']['message_table'] as string));
+            let code = tools.decompressDMAFileFromRom(rom, 27);
+            file.copy(code, 0xF98AC, 0x0, 0x8354);
+            let recompressed = tools.recompressDMAFileIntoRom(rom, 27, code);
+            console.log(recompressed);
+            if (recompressed){
+                this.ModLoader.logger.info("Successfully replaced code");
+            } else {
+                tools.noCRC(rom);
+                let address = tools.relocateFileToExtendedRom(rom, 27, code);
+                this.ModLoader.logger.info(`Failed to replace code, relocating to 0x${address.toString(16).toUpperCase()}`);
+            }
+        }
         if (!!((this as any)['metadata']['EN_message'] as string)) {
             let file = fs.readFileSync(path.resolve(__dirname, (this as any)['metadata']['EN_message'] as string));
             if (tools.recompressDMAFileIntoRom(rom, 22, file)){
                 this.ModLoader.logger.info("Successfully replaced nes_message_data_static");
             } else {
                 tools.noCRC(rom);
-                let address = tools.relocateFileToExtendedRom(rom, 22, file);
+                let address = tools.relocateFileToExtendedRom(rom, 22, file, file.length, true);
                 this.ModLoader.logger.info(`Failed to replace nes_message_data_static, relocating to 0x${address.toString(16).toUpperCase()}`);
             }
         }
@@ -34,20 +48,8 @@ class TextReplacement implements IPlugin {
                 this.ModLoader.logger.info("Successfully replaced jpn_message_data_static");
             } else {
                 tools.noCRC(rom);
-                let address = tools.relocateFileToExtendedRom(rom, 19, file);
+                let address = tools.relocateFileToExtendedRom(rom, 19, file, file.length, true);
                 this.ModLoader.logger.info(`Failed to replace jpn_message_data_static, relocating to 0x${address.toString(16).toUpperCase()}`);
-            }
-        }
-        if (!!((this as any)['metadata']['message_table'] as string)) {
-            let file = fs.readFileSync(path.resolve(__dirname, (this as any)['metadata']['message_table'] as string));
-            let code = tools.decompressDMAFileFromRom(rom, 27);
-            file.copy(code, 0xF98AC, 0x0, 0x8354);
-            if (tools.recompressDMAFileIntoRom(rom, 27, code)){
-                this.ModLoader.logger.info("Successfully replaced code");
-            } else {
-                tools.noCRC(rom);
-                let address = tools.relocateFileToExtendedRom(rom, 27, code);
-                this.ModLoader.logger.info(`Failed to replace code, relocating to 0x${address.toString(16).toUpperCase()}`);
             }
         }
     }

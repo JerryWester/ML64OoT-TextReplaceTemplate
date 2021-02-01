@@ -1,5 +1,6 @@
 # OoT Text Replacement Template
 ## Usage
+#### This template and all mods created from it require OotOnline to be enabled and placed above the mod.
 When you have your message files, drop them in the `OoTTextReplace` folder, next to `package.json`. Edit `package.json` to point to the specified files, and change `"core"` to refer to the specific game with text being replaced. `package.json` should look something like this:
 ```json
 {
