@@ -12,4 +12,5 @@ You can leave either message field empty if you don't need to replace them. Majo
 
 ## Getting Text Files
 ### For [Zelda's Letter](https://deku.link/z64-text-editor/)
-In Zelda's Letter, press Ctrl+P, and select "Application: Save Binaries". `1_message_data_static.bin` is English text, `0_message_data_static.bin` is Japanese text. (NOTE: Zelda's Letter only works with decompressed ROMs. You can use [zzdec](http://www.z64.me/tools/zzdec) to decompress your ROM)
+In Zelda's Letter, press Ctrl+P, and select "Application: Save Binaries". `1_message_data_static.bin` is English text, `0_message_data_static.bin` is Japanese text.
+#### (NOTE: Zelda's Letter only works with decompressed ROMs. You can use [zzdec](http://www.z64.me/tools/zzdec) to decompress your ROM)
