@@ -1,0 +1,23 @@
+{
+  "name": "OoTTextReplace",
+  "version": "1.0.0",
+  "description": "When you have your message files, drop them in the `TextReplacementTemplate` folder, next to `package.json`. Edit `package.json` to point to the specified files, and change `\"core\"` to refer to the specific game with text being replaced. `package.json` should look something like this:\r ```json\r {\r   \"core\": \"OcarinaofTime\",\r   \"EN_message\": \"1_message_data_static.bin\",\r   \"JP_message\": \"\"\r }\r ```\r Replace `OcarinaofTime` with `MajorasMask` to replace text in Majora's Mask. You can leave either message field empty if you don't need to replace them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JerryWester/ML64OoT-TextReplaceTemplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JerryWester/ML64OoT-TextReplaceTemplate/issues"
+  },
+  "homepage": "https://github.com/JerryWester/ML64OoT-TextReplaceTemplate#readme",
+  "modloader64_deps": {
+    "Z64Lib": "https://github.com/hylian-modding/ML64-Z64Lib.git"
+  }
+}

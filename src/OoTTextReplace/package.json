@@ -1,0 +1,13 @@
+{
+  "name": "zzplayas_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "zzplayas.js",
+  "author": "Team-Ooto",
+  "credits": "",
+  "license": "GPL-3.0",
+  "compression": "zip",
+  "core": "OcarinaofTime",
+  "EN_message": "",
+  "JP_message": ""
+}
