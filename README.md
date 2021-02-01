@@ -11,5 +11,5 @@ When you have your message files, drop them in the `TextReplacementTemplate` fol
 You can leave either message field empty if you don't need to replace them. Majora's Mask not currently supported.
 
 ## Getting Text Files
-### For Zelda's Letter
+### For [Zelda's Letter](https://deku.link/)
 In Zelda's Letter, press Ctrl+P, and select "Application: Save Binaries". `1_message_data_static.bin` is English text, `0_message_data_static.bin` is Japanese text.
