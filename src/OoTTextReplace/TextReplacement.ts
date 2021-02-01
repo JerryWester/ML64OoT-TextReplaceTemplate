@@ -38,6 +38,18 @@ class TextReplacement implements IPlugin {
                 this.ModLoader.logger.info(`Failed to replace jpn_message_data_static, relocating to 0x${address.toString(16).toUpperCase()}`);
             }
         }
+        if (!!((this as any)['metadata']['message_table'] as string)) {
+            let file = fs.readFileSync(path.resolve(__dirname, (this as any)['metadata']['message_table'] as string));
+            let code = tools.decompressDMAFileFromRom(rom, 27);
+            file.copy(code, 0xF98AC, 0x0, 0x8354);
+            if (tools.recompressDMAFileIntoRom(rom, 27, code)){
+                this.ModLoader.logger.info("Successfully replaced code");
+            } else {
+                tools.noCRC(rom);
+                let address = tools.relocateFileToExtendedRom(rom, 27, code);
+                this.ModLoader.logger.info(`Failed to replace code, relocating to 0x${address.toString(16).toUpperCase()}`);
+            }
+        }
     }
 
 }
