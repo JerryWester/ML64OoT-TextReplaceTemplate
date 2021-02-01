@@ -8,7 +8,7 @@ When you have your message files, drop them in the `TextReplacementTemplate` fol
   "JP_message": ""
 }
 ```
-Replace `OcarinaofTime` with `MajorasMask` to replace text in Majora's Mask. You can leave either message field empty if you don't need to replace them.
+You can leave either message field empty if you don't need to replace them. Majora's Mask not currently supported.
 
 ## Getting Text Files
 ### For Zelda's Letter
