@@ -23,10 +23,10 @@ class TextReplacement implements IPlugin {
             let code = tools.decompressDMAFileFromRom(rom, 27);
             file.copy(code, 0xF98AC, 0x0, 0x8354);
             let recompressed = tools.recompressDMAFileIntoRom(rom, 27, code);
-            console.log(recompressed);
             if (recompressed){
                 this.ModLoader.logger.info("Successfully replaced code");
             } else {
+                this.ModLoader.logger.debug("If your game crashes here, Z64Lib is outdated. Enable OotOnline and place it above this mod if necessary.");
                 tools.noCRC(rom);
                 let address = tools.relocateFileToExtendedRom(rom, 27, code);
                 this.ModLoader.logger.info(`Failed to replace code, relocating to 0x${address.toString(16).toUpperCase()}`);
