@@ -1,6 +1,6 @@
 {
   "name": "OoTTextReplace",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "When you have your message files, drop them in the `TextReplacementTemplate` folder, next to `package.json`. Edit `package.json` to point to the specified files, and change `\"core\"` to refer to the specific game with text being replaced. `package.json` should look something like this:\r ```json\r {\r   \"core\": \"OcarinaofTime\",\r   \"EN_message\": \"1_message_data_static.bin\",\r   \"JP_message\": \"\"\r }\r ```\r Replace `OcarinaofTime` with `MajorasMask` to replace text in Majora's Mask. You can leave either message field empty if you don't need to replace them.",
   "main": "index.js",
   "scripts": {

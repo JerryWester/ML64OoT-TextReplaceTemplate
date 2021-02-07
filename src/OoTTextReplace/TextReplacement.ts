@@ -34,7 +34,7 @@ class TextReplacement implements IPlugin {
         }
         if (!!((this as any)['metadata']['EN_message'] as string)) {
             let file = fs.readFileSync(path.resolve(__dirname, (this as any)['metadata']['EN_message'] as string));
-            if (tools.recompressDMAFileIntoRom(rom, 22, file)){
+            if (file.length < 0x38130 && tools.recompressDMAFileIntoRom(rom, 22, file)){
                 this.ModLoader.logger.info("Successfully replaced nes_message_data_static");
             } else {
                 tools.noCRC(rom);
@@ -44,7 +44,7 @@ class TextReplacement implements IPlugin {
         }
         if (!!((this as any)['metadata']['JP_message'] as string)) {
             let file = fs.readFileSync(path.resolve(__dirname, (this as any)['metadata']['JP_message'] as string));
-            if (tools.recompressDMAFileIntoRom(rom, 19, file)){
+            if (file.length < 0x3A350 && tools.recompressDMAFileIntoRom(rom, 19, file)){
                 this.ModLoader.logger.info("Successfully replaced jpn_message_data_static");
             } else {
                 tools.noCRC(rom);
